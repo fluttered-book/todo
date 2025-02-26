@@ -25,8 +25,6 @@ class TodoCubit extends Cubit<TodoState> {
       status: TodoStatus.saving,
     );
     emit(newState);
-    Future.delayed(Duration(seconds: 1))
-        .then((_) => emit(state.copyWith(status: TodoStatus.ready)));
   }
 
   void delete(String id) {
@@ -39,8 +37,6 @@ class TodoCubit extends Cubit<TodoState> {
       status: TodoStatus.saving,
     );
     emit(newState);
-    Future.delayed(Duration(seconds: 1))
-        .then((_) => emit(state.copyWith(status: TodoStatus.ready)));
   }
 
   void toggle(String id) {
