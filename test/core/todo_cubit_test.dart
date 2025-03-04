@@ -29,11 +29,14 @@ void main() {
       act: (cubit) =>
           cubit.update(Todo.create(id: '2', title: "updated second")),
       expect: () => [
-        TodoState.create(todos: [
-          Todo.create(id: "1", title: "first"),
-          Todo.create(id: "2", title: "updated second"),
-          Todo.create(id: "3", title: "third"),
-        ])
+        TodoState.create(
+          todos: [
+            Todo.create(id: "1", title: "first"),
+            Todo.create(id: "2", title: "updated second"),
+            Todo.create(id: "3", title: "third"),
+          ],
+          status: TodoStatus.saving,
+        )
       ],
     );
 
@@ -46,7 +49,10 @@ void main() {
       ]),
       act: (cubit) => cubit.delete("2"),
       expect: () => [
-        TodoState.create(todos: [Todo.create(id: "1")])
+        TodoState.create(
+          todos: [Todo.create(id: "1")],
+          status: TodoStatus.saving,
+        )
       ],
     );
   });
