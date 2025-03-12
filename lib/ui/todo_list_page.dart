@@ -24,7 +24,10 @@ class TodoListPage extends StatelessWidget {
             };
             if (message == null) return;
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(message)),
+              SnackBar(
+                  content: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [Text(message), CircularProgressIndicator()])),
             );
           },
           buildWhen: (previous, current) => previous.todos != current.todos,
