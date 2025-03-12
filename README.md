@@ -1,6 +1,6 @@
-# todo
+# ToDo app
 
-A new Flutter project.
+A simple ToDo app for demonstrating state management with BLoC/Cubit.
 
 ## Getting Started
 
