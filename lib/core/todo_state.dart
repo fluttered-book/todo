@@ -1,5 +1,7 @@
-import 'package:equatable/equatable.dart';
+import 'package:dart_mappable/dart_mappable.dart';
 import 'package:todo/data/model.dart';
+
+part 'todo_state.mapper.dart';
 
 enum TodoStatus {
   loading,
@@ -7,7 +9,8 @@ enum TodoStatus {
   ready,
 }
 
-class TodoState extends Equatable {
+@MappableClass()
+class TodoState with TodoStateMappable {
   final TodoStatus status;
   final List<Todo> todos;
 
@@ -17,14 +20,4 @@ class TodoState extends Equatable {
     this.status = TodoStatus.ready,
     this.todos = const [],
   });
-
-  TodoState copyWith({TodoStatus? status, List<Todo>? todos}) {
-    return TodoState(
-      status: status ?? this.status,
-      todos: todos ?? this.todos,
-    );
-  }
-
-  @override
-  List<Object?> get props => [status, todos];
 }

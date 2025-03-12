@@ -1,6 +1,9 @@
-import 'package:equatable/equatable.dart';
+import 'package:dart_mappable/dart_mappable.dart';
 
-class Todo extends Equatable {
+part 'model.mapper.dart';
+
+@MappableClass()
+class Todo with TodoMappable {
   final String id;
   final String title;
   final String description;
@@ -20,21 +23,5 @@ class Todo extends Equatable {
     this.done = false,
   });
 
-  Todo copyWith({
-    String? title,
-    String? description,
-    bool? done,
-  }) {
-    return Todo(
-      id: id,
-      title: title ?? this.title,
-      description: description ?? this.description,
-      done: done ?? this.done,
-    );
-  }
-
   Todo toggleDone() => copyWith(done: !done);
-
-  @override
-  List<Object?> get props => [id, title, description, done];
 }

@@ -15,9 +15,7 @@ class TodoListPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("ToDo")),
       body: BlocConsumer<TodoCubit, TodoState>(
-          listenWhen: (previous, current) =>
-              previous.status == TodoStatus.ready &&
-              current.status != TodoStatus.ready,
+          listenWhen: (previous, current) => current.status != TodoStatus.ready,
           listener: (context, state) {
             final message = switch (state.status) {
               TodoStatus.saving => "Saving...",
