@@ -1,0 +1,102 @@
+{
+  "uuid": "17e7dc59-56a3-4d6c-a35d-34f529da46b5",
+  "lastMigration": 33,
+  "name": "Todo",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "d6b15de2-7bfb-4e5a-a5c9-95ad37809330",
+      "type": "crud",
+      "documentation": "",
+      "method": "",
+      "endpoint": "todos",
+      "responses": [
+        {
+          "uuid": "18846d91-e498-4abc-962a-74a9dc261849",
+          "body": "{}",
+          "latency": 1,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "2teb",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "d6b15de2-7bfb-4e5a-a5c9-95ad37809330"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [
+    {
+      "uuid": "7d5ac4e1-9086-42a2-9f46-4a668bf30d62",
+      "id": "2teb",
+      "name": "todo",
+      "documentation": "",
+      "value": "[\n  {{#repeat 10}}\n  {\n    \"id\": \"{{faker 'string.uuid'}}\",\n    \"title\": \"{{faker 'company.catchPhraseAdjective'}} {{faker 'hacker.ingverb'}} {{faker 'hacker.noun'}}\",\n    \"description\": \"{{faker 'hacker.phrase'}}\",\n    \"done\": \"{{faker 'datatype.boolean' probability: 0.1 }}\"\n  }\n  {{/repeat}}\n]"
+    }
+  ],
+  "callbacks": []
+}
